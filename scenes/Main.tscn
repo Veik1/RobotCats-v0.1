@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=3 uid="uid://nw22wmst0qcb"]
+
+[ext_resource type="Script" uid="uid://bka7yg2war0jt" path="res://scripts/UI/Main.cs" id="1_rvslj"]
+[ext_resource type="Texture2D" uid="uid://b125ic4t4ft56" path="res://assets/ui/robot_cat.svg" id="2_0bbpv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvslj"]
+bg_color = Color(0.14902, 0.0941176, 0.290196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rarhs"]
+bg_color = Color(0, 0.0470588, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bbpv"]
+bg_color = Color(7.21961e-08, 0.165891, 0.454472, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlsqs"]
+bg_color = Color(0.0684249, 0.0147841, 0.086395, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8u5g"]
+bg_color = Color(4.81308e-08, 0.0287071, 0.135837, 1)
+
+[node name="Control" type="Control" node_paths=PackedStringArray("CatButton", "CatCounterLabel", "CPSLabel", "UpgradesContainer", "FactoriesContainer", "FactoryRow1", "FactoryRow2", "FactoryRow3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rvslj")
+CatButton = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer/CenterContainer catbutton/CatButton")
+CatCounterLabel = NodePath("MarginContainer/VBoxContainer/borde general HBoxContainer/catcounter label")
+CPSLabel = NodePath("MarginContainer/VBoxContainer/borde general HBoxContainer/cpscounter label")
+UpgradesContainer = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer Tab/TabContainer/Upgrades")
+FactoriesContainer = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer Tab/TabContainer/Factories")
+FactoryRow1 = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer")
+FactoryRow2 = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2")
+FactoryRow3 = NodePath("MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvslj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="borde general HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="catcounter label" type="Label" parent="MarginContainer/VBoxContainer/borde general HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "cats: 0"
+
+[node name="cpscounter label" type="Label" parent="MarginContainer/VBoxContainer/borde general HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "CPS: 0"
+
+[node name="main HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer Tab" type="VBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.24
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer Tab"]
+layout_mode = 2
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_rarhs")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0bbpv")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Upgrades" type="VBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer Tab/TabContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+metadata/_tab_index = 0
+
+[node name="Factories" type="VBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer Tab/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jlsqs")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.0238103, 0, 0.364581, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.157005, 0.0863885, 0, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/main HBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.222077, 0, 0.0720438, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="PanelContainer stats" type="PanelContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_q8u5g")
+
+[node name="CenterContainer catbutton" type="CenterContainer" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="CatButton" type="Button" parent="MarginContainer/VBoxContainer/main HBoxContainer/VBoxContainer/CenterContainer catbutton"]
+layout_mode = 2
+theme_override_colors/icon_hover_pressed_color = Color(1, 0.410569, 0.989604, 1)
+theme_override_colors/icon_hover_color = Color(1, 0.752941, 0.984314, 1)
+theme_override_colors/icon_pressed_color = Color(0.999999, 0.386306, 0.98786, 1)
+theme_override_colors/icon_focus_color = Color(1, 0.752941, 0.984314, 1)
+theme_override_colors/icon_normal_color = Color(1, 0.752085, 0.985535, 1)
+icon = ExtResource("2_0bbpv")
